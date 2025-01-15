@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
 
                 <form class="d-flex mt-lg-0 mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="ex: Le Havre" aria-label="Search">
+                    <input name="city" class="form-control me-2" type="search" placeholder="ex: Le Havre" aria-label="Search">
                     <button class="btn btn-outline-dark" type="submit">Rechercher</button>
                 </form>
 
@@ -34,8 +34,8 @@
     </nav>
     <!-- end navbar -->
 
-    <main>
-        <p class="fs-1 mt-2 mb-1 fw-bold">Le Havre</p>
+    <div id="interface">
+        <!-- <p class="fs-1 mt-2 mb-1 fw-bold">Le Havre</p>
         <p class="fs-5">Lundi 13 Janvier 2025</p>
 
         <div class="py-2 mb-4 border bg-success shadow rounded mx-3">
@@ -50,14 +50,21 @@
             </div>
         </div>
 
-        <p class="fs-1 mb-0"><i class="bi bi-thermometer me-2"></i>3°C</p>
-        <p class="fst-italic">ressenti : 0°C</p>
-        <p><span class="text-primary">min :</span> -1° C / <span class="text-danger">max :</span> 3° C</p>
-    </main>
+        <p class="fs-1 mb-0">3° C<i class="bi bi-thermometer ms-1"></i></p>
+        <p class="fst-italic">ressenti : 0° C</p>
+        <p><span class="text-primary">min :</span> -1° C / <span class="text-danger">max :</span> 3° C</p> -->
+    </div>
 
 
+
+    <!-- script bootstrap -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/script/script.js"></script>
+
+    <!-- script moment js -->
+    <script src="assets/script/moment-with-locales.js"></script>
+
+    <!-- mettre en type module pour importer des éléments -->
+    <script type="module" src="assets/script/script.js"></script>
 </body>
 
 </html>
