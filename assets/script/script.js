@@ -1,9 +1,12 @@
 // import { apiKey } from "../../config.js"
 
+// Afin de récupérer et manipuler les parametres d'URL nous allons créer un objet URLSearchParams
 const urlParams = new URLSearchParams(window.location.search);
 let city = urlParams.get('city');
 
+// Nous testons si nous avons récupérer une valeur via l'URL
 if (city == null || city == "") {
+    // dans le cas échéant nous attribuons une valeur par défaut : havre
     city = 'havre'
 }
 
@@ -17,32 +20,31 @@ let url = `https://api.openweathermap.org/data/2.5/forecast?lang=fr&units=metric
 fetch(url)
     .then(response => response.json())
     .then(data => {
+
         // affiche le json en entier
         console.log(data)
         // affiche le nom de la ville
         console.log(data.city.name)
-
         // date du jour avec moment.js
         console.log(moment(data.list[0].dt_txt).locale('fr').format('LL'))
-
         // heure avec moment .js
         console.log(moment(data.list[0].dt_txt).locale('fr').format('LT'))
-        // icon 
+        // icone du temps
         console.log(data.list[0].weather[0].icon)
-        // description
+        // description du temps
         console.log(data.list[0].weather[0].description)
-        // temp
+        // température
         console.log(data.list[0].main.temp.toPrecision(2))
-        // ressenti
+        // température ressentie
         console.log(data.list[0].main.feels_like.toPrecision(2))
-        // temp min
+        // température min.
         console.log(data.list[0].main.temp_min.toPrecision(2))
-        // temp max
+        // température max.
         console.log(data.list[0].main.temp_max.toPrecision(2))
-        // sunrise
+        // levé du soleil
         let sunrise = new Date(data.city.sunrise * 1000)
         console.log(moment(sunrise).locale('fr').format('LT'))
-        // sunset
+        // couché du soleil
         let sunset = new Date(data.city.sunset * 1000)
         console.log(moment(sunset).locale('fr').format('LT'))
 
@@ -66,6 +68,5 @@ fetch(url)
         <p class="fst-italic">ressenti : ${data.list[0].main.feels_like.toPrecision(2)}° C</p>
         <p><span class="text-primary">min :</span> ${data.list[0].main.temp_min.toPrecision(2)}° C / <span class="text-danger">max :</span> ${data.list[0].main.temp_max.toPrecision(2)}° C</p>
     `
-
 
     })

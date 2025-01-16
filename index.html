@@ -11,7 +11,7 @@
 
 </head>
 
-<body class="text-center bg-success-subtle">
+<body class="text-center">
 
     <!-- start navbar -->
     <nav class="navbar navbar-expand-lg">
@@ -25,7 +25,8 @@
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
 
                 <form class="d-flex mt-lg-0 mt-3" role="search">
-                    <input name="city" class="form-control me-2" type="search" placeholder="ex: Le Havre" aria-label="Search">
+                    <input name="city" class="form-control me-2" type="search" placeholder="ex: Le Havre"
+                        aria-label="Search">
                     <button class="btn btn-outline-dark" type="submit">Rechercher</button>
                 </form>
 
@@ -35,24 +36,28 @@
     <!-- end navbar -->
 
     <div id="interface">
-        <!-- <p class="fs-1 mt-2 mb-1 fw-bold">Le Havre</p>
+        <p class="fs-1 mt-2 mb-1 fw-bold">Le Havre</p>
         <p class="fs-5">Lundi 13 Janvier 2025</p>
 
-        <div class="py-2 mb-4 border bg-success shadow rounded mx-3">
+        <div class="py-2 mb-4 border bg-success-subtle shadow rounded mx-3">
             <div class="row m-0">
-                <div class="col">
+
+                <div class="col border">
                     <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="Image météo">
                 </div>
-                <div class="col p-3 d-flex flex-column justify-content-center">
-                    <p class="fs-1 fw-bold text-light">15H00</p>
-                    <p class="fs-1 mb-0 text-light">Belles éclaircies</p>
+                <div class="col border p-3 d-flex flex-column justify-content-center">
+                    <p class="fs-2 mb-0 text-success">Belles éclaircies</p>
                 </div>
+                <div class="col px-3 border d-flex flex-column justify-content-lg-evenly justify-content-sm-center">
+                    <p class="fs-1 mb-0 border">3° C<i class="bi bi-thermometer ms-1"></i></p>
+                    <p class="fst-italic border">ressenti : 0° C</p>
+                    <p class="border"><span class="text-primary">min :</span> -1° C / <span class="text-danger">max :</span> 3° C</p>
+                </div>
+
             </div>
         </div>
 
-        <p class="fs-1 mb-0">3° C<i class="bi bi-thermometer ms-1"></i></p>
-        <p class="fst-italic">ressenti : 0° C</p>
-        <p><span class="text-primary">min :</span> -1° C / <span class="text-danger">max :</span> 3° C</p> -->
+
     </div>
 
 
@@ -64,7 +69,7 @@
     <script src="assets/script/moment-with-locales.js"></script>
 
     <!-- mettre en type module pour importer des éléments -->
-    <script type="module" src="assets/script/script.js"></script>
+    <script type="module" src="assets/script/script.jss"></script>
 </body>
 
 </html>
