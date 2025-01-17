@@ -35,29 +35,49 @@
     </nav>
     <!-- end navbar -->
 
-    <div id="interface">
+    <div id="interface container">
+        <!-- ici les données de l'API météo  -->
+
+
+        <!-- bloc du nom de la ville et la date -->
         <p class="fs-1 mt-2 mb-1 fw-bold">Le Havre</p>
         <p class="fs-5">Lundi 13 Janvier 2025</p>
 
-        <div class="py-2 mb-4 border bg-success-subtle shadow rounded mx-3">
-            <div class="row m-0">
 
-                <div class="col border">
-                    <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="Image météo">
+        <!-- bloc 1 - Bloc haut  -->
+        <div class="mb-4 border bg-info shadow mx-3">
+            <div class="row border border-danger m-0 p-2">
+
+                <div class="col border border-warning">
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Image météo">
+                    <p class="border text-light mb-0">Belles éclaircies</p>
                 </div>
-                <div class="col border p-3 d-flex flex-column justify-content-center">
-                    <p class="fs-2 mb-0 text-success">Belles éclaircies</p>
-                </div>
-                <div class="col px-3 border d-flex flex-column justify-content-lg-evenly justify-content-sm-center">
-                    <p class="fs-1 mb-0 border">3° C<i class="bi bi-thermometer ms-1"></i></p>
-                    <p class="fst-italic border">ressenti : 0° C</p>
-                    <p class="border"><span class="text-primary">min :</span> -1° C / <span class="text-danger">max :</span> 3° C</p>
+
+                <div class="col border p-1 row m-0">
+                    <div class="col d-flex flex-column justify-content-center">
+                        <p class="mb-0"><span class="temperature">10°</span>C</p>
+                        <p class="feeling mb-0">Ressentie : 8°C</p>
+                    </div>
                 </div>
 
             </div>
         </div>
+        <!-- fin bloc 1 - Bloc haut  -->
+
+        <!-- bloc 2 - Bloc prévision horaires  -->
+        <div class="d-flex overflow-auto border border-dark mx-3 px-2">
+
+            <div class="forecastHours border py-2">
+                <p class="mb-0">12h00</p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Image météo">
+                <p class="mb-0">12°C</p>
+            </div>
+
+        </div>
+        <!-- fin bloc 2 - Bloc prévision horaires  -->
 
 
+        <!-- fin des données de l'API météo  -->
     </div>
 
 
@@ -65,11 +85,11 @@
     <!-- script bootstrap -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- script moment js -->
+    <!-- script moment js via fichier dl sur https://momentjs.com/ -->
     <script src="assets/script/moment-with-locales.js"></script>
 
     <!-- mettre en type module pour importer des éléments -->
-    <script type="module" src="assets/script/script.jss"></script>
+    <script type="module" src="assets/script/script.js"></script>
 </body>
 
 </html>

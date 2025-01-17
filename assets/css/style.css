@@ -4,3 +4,20 @@ body {
     font-family: "Poppins", serif;
     font-style: normal;
 }
+
+.temperature {
+    font-size: 4rem;
+}
+
+.feeling {
+    font-size: 0.8rem;
+}
+
+/* Section Forecast by Hours */
+.forecastHours {
+    width: 7rem;
+}
+
+.forecastHours img {
+    height: 5rem;
+}

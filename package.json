@@ -1,16 +1,15 @@
 {
   "name": "afpa-js-weather",
   "version": "1.0.0",
-  "description": "Application météo via openWeatherMap",
+  "description": "Application météo en JS + API OpenWeatherMap",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "AnousoneM",
+  "author": "AnousoneM from Afpa",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "moment": "^2.30.1"
+    "bootstrap": "^5.3.3"
   }
 }
