@@ -34,7 +34,7 @@ fetch(url)
         <p class="fs-1 mt-2 mb-1 fw-bold">${data.city.name}</p>
         <p class="fs-5">${moment(data.list[0].dt_txt).locale('fr').format('LL')}</p>
 
-        <div class="mb-3 bg-success-subtle shadow rounded mx-3">
+        <div class="mb-3 bg-success-subtle shadow rounded mx-2">
             <div class="row m-0 p-2">
 
                 <div class="col">
@@ -52,7 +52,7 @@ fetch(url)
             </div>
         </div>
 
-        <div class="d-flex overflow-auto mx-3 p-2 mb-3 bg-success-subtle rounded shadow">
+        <div class="d-flex overflow-auto mx-2 p-2 mb-3 bg-success-subtle rounded shadow">
 
             <div class="forecastHours bg-light border rounded py-2">
                 <p class="mb-0">12h00</p>
@@ -67,7 +67,7 @@ fetch(url)
 
         </div>
 
-        <div class="bg-success-subtle rounded shadow mx-3 p-2">        
+        <div class="bg-success-subtle rounded shadow mx-2 p-2">        
             
             ${makeFiveDaysCast(data.list.filter( date => date.dt_txt.split(' ')[1] == '12:00:00'))}
 
