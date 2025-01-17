@@ -26,3 +26,5 @@
         // couché du soleil
         let sunset = new Date(data.city.sunset * 1000)
         console.log(moment(sunset).locale('fr').format('LT'))
+        // prévisions des 5 jours / 12:00
+        console.log(data.list.filter( date => date.dt_txt.split(' ')[1] == '12:00:00'))
