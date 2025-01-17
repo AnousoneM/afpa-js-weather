@@ -13,6 +13,7 @@ body {
     font-size: 0.8rem;
 }
 
+
 /* Section Forecast by Hours */
 .forecastHours {
     width: 7rem;
@@ -21,3 +22,11 @@ body {
 .forecastHours img {
     height: 5rem;
 }
+
+
+/* Section Forecast by Hours */
+.forecastDays {
+    font-size: 0.8rem;
+    width: 100%;
+}
+

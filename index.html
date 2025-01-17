@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApplI Météo Afpa</title>
+    <!-- module bootstrap -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- icones bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- feuille de style custom -->
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -45,7 +48,7 @@
 
 
         <!-- bloc 1 - Bloc haut  -->
-        <div class="mb-4 border bg-info shadow mx-3">
+        <div class="mb-3 border bg-info shadow mx-3">
             <div class="row border border-danger m-0 p-2">
 
                 <div class="col border border-warning">
@@ -65,16 +68,27 @@
         <!-- fin bloc 1 - Bloc haut  -->
 
         <!-- bloc 2 - Bloc prévision horaires  -->
-        <div class="d-flex overflow-auto border border-dark mx-3 px-2">
+        <div class="d-flex overflow-auto border border-dark mx-3 p-2 mb-3">
 
             <div class="forecastHours border py-2">
                 <p class="mb-0">12h00</p>
                     <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Image météo">
                 <p class="mb-0">12°C</p>
             </div>
-
+            
         </div>
         <!-- fin bloc 2 - Bloc prévision horaires  -->
+
+        <!-- bloc 3 - Bloc prévision jours  -->
+        <div class="border border-dark mx-3 p-2">
+            <div class="forecastDays text-center border d-flex justify-content-evenly align-items-center rounded mb-1">
+                Merc.<img class="border" src="https://openweathermap.org/img/wn/10d.png" alt="Image météo">6°C / 12°C
+            </div>
+            <div class="forecastDays text-center border d-flex justify-content-evenly align-items-center rounded mb-1">
+                Merc.<img class="border" src="https://openweathermap.org/img/wn/10d.png" alt="Image météo">6°C / 12°C
+            </div>            
+        </div>
+        <!-- fin bloc 3 - Bloc prévision jours  -->
 
 
         <!-- fin des données de l'API météo  -->
