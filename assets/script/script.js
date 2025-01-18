@@ -22,6 +22,8 @@ fetch(url)
     .then(response => response.json())
     .then(data => {
 
+        console.log(data.list)
+
         // nous testons la valeur de cod, si 404 cela indique que la ville n'est pas trouvée
         if (data.cod == 404) {
             document.querySelector('#interface').innerHTML = `
@@ -60,7 +62,7 @@ fetch(url)
 
         <div class="bg-success-subtle rounded shadow mx-2 p-2">        
             
-            ${makeFiveDaysCast(data.list.filter( date => date.dt_txt.split(' ')[1] == '12:00:00'))}
+            ${makeFiveDaysCast(data)}
 
         </div>
 
@@ -69,32 +71,34 @@ fetch(url)
     })
 
 
-    // fonction permettant de créer les 5 prochains jours
-    // elle prends en paramètre un tableau de données et retourne un élément html
-    function makeFiveDaysCast(arrayData){
-        let htmlElement = ''
-        arrayData.forEach(element => {
-            htmlElement += `
+// fonction permettant de créer les 5 prochains jours
+// elle prends en paramètre un tableau de données et retourne un élément html
+function makeFiveDaysCast(arrayData) {
+    let htmlElement = ''
+    // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours 
+    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt.split(' ')[1] == '12:00:00')
+    fiveDaysArray.forEach(element => {
+        htmlElement += `
             <div class="forecastDays bg-light text-center d-flex justify-content-evenly align-items-center rounded mb-1">
                 ${moment(element.dt_txt).locale('fr').format('ddd')}<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}.png" alt="Image météo"><span><i class="bi bi-arrow-down-short"></i>${Math.round(element.main.temp_min)}°C / <i class="bi bi-arrow-up-short"></i>${Math.round(element.main.temp_max)}°C</span>
             </div>    
             `
-        })
-        return htmlElement
-    }
+    })
+    return htmlElement
+}
 
-    // fonction permettant de créer les 10 prochaines heures de la journée
-    // elle prends en paramètre un tableau de données et le nombre d'heures à afficher et retourne un élément html
-    function makeTenHoursCast(arrayData,nbHours){
-        let htmlElement = ''
-        for(let i = 0; i < nbHours ; i++){
-            htmlElement += `
+// fonction permettant de créer les 10 prochaines heures de la journée
+// elle prends en paramètre un tableau de données et le nombre d'heures à afficher et retourne un élément html
+function makeTenHoursCast(arrayData, nbHours) {
+    let htmlElement = ''
+    for (let i = 0; i < nbHours; i++) {
+        htmlElement += `
             <div class="forecastHours bg-light border rounded py-2">
                 <p class="mb-0">${moment(arrayData.list[i].dt_txt).locale('fr').format('LT')}</p>
                     <img src="https://openweathermap.org/img/wn/${arrayData.list[i].weather[0].icon}@2x.png" alt="Image météo">
                 <p class="mb-0">${Math.round(arrayData.list[i].main.temp)}°C</p>
             </div>
             `
-        }
-        return htmlElement
     }
+    return htmlElement
+}
