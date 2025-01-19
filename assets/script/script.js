@@ -22,8 +22,6 @@ fetch(url)
     .then(response => response.json())
     .then(data => {
 
-        console.log(data.list)
-
         // nous testons la valeur de cod, si 404 cela indique que la ville n'est pas trouvée
         if (data.cod == 404) {
             document.querySelector('#interface').innerHTML = `
@@ -75,8 +73,16 @@ fetch(url)
 // elle prends en paramètre un tableau de données et retourne un élément html
 function makeFiveDaysCast(arrayData) {
     let htmlElement = ''
+
+    // on recupere la date en cours 
+    const today = arrayData.list[0].dt_txt
+    console.log(today)
+
     // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours 
-    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt.split(' ')[1] == '12:00:00')
+    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '06:00:00' || date.dt_txt.split(' ')[1] == '12:00:00')
+
+    console.log(fiveDaysArray)
+
     fiveDaysArray.forEach(element => {
         htmlElement += `
             <div class="forecastDays bg-light text-center d-flex justify-content-evenly align-items-center rounded mb-1">
