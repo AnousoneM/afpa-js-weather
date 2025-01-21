@@ -79,7 +79,7 @@ function makeFiveDaysCast(arrayData) {
     console.log(today)
 
     // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours 
-    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '06:00:00' || date.dt_txt.split(' ')[1] == '12:00:00')
+    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '12:00:00')
 
     console.log(fiveDaysArray)
 
