@@ -9,6 +9,14 @@ body {
     font-size: 4rem;
 }
 
+.bg-afpa-forecast {
+    background-color: #57baa2;
+}
+
+.bg-afpa {
+    background-color: #dce176;
+}
+
 .feeling {
     font-size: 0.8rem;
 }

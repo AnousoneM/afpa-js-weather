@@ -29,12 +29,15 @@ fetch(url)
             `
             // sinon, cela indique que le ville a été trouvée, donc sinon on affiche
         } else {
+
+            console.log(data)
+
             document.querySelector('#interface').innerHTML = `
 
         <p class="fs-1 mt-2 mb-1 fw-bold">${data.city.name}</p>
         <p class="fs-5">${moment(data.list[0].dt_txt).locale('fr').format('LL')}</p>
 
-        <div class="mb-3 bg-success-subtle shadow rounded mx-2">
+        <div class="mb-3 bg-afpa-forecast shadow rounded mx-2">
             <div class="row m-0 p-2">
 
                 <div class="col">
@@ -52,13 +55,13 @@ fetch(url)
             </div>
         </div>
 
-        <div class="d-flex overflow-auto mx-2 p-2 mb-3 bg-success-subtle rounded shadow">
+        <div class="d-flex overflow-auto mx-2 py-2 ps-2 pe-1 mb-3 bg-afpa-forecast rounded shadow">
      
             ${makeTenHoursCast(data, 10)}
 
         </div>
 
-        <div class="bg-success-subtle rounded shadow mx-2 p-2">        
+        <div class="bg-afpa-forecast rounded shadow mx-2 px-2 pt-2 pb-1">        
             
             ${makeFiveDaysCast(data)}
 
@@ -74,19 +77,22 @@ fetch(url)
 function makeFiveDaysCast(arrayData) {
     let htmlElement = ''
 
+
+    const test = []
+
     // on recupere la date en cours 
     const today = arrayData.list[0].dt_txt
-    console.log(today)
 
-    // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours 
-    const fiveDaysArray = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '12:00:00')
+    // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours a 12h
+    const fiveDaysArray12h = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '12:00:00')
 
-    console.log(fiveDaysArray)
+    // nous allons créer un tableau à l'aide de filter pour obtenir la météo sur 5 jours a 9h
+    const fiveDaysArray9h = arrayData.list.filter(date => date.dt_txt != today).filter(date => date.dt_txt.split(' ')[1] == '09:00:00')
 
-    fiveDaysArray.forEach(element => {
+    fiveDaysArray12h.forEach(element => {
         htmlElement += `
-            <div class="forecastDays bg-light text-center d-flex justify-content-evenly align-items-center rounded mb-1">
-                ${moment(element.dt_txt).locale('fr').format('ddd')}<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}.png" alt="Image météo"><span><i class="bi bi-arrow-down-short"></i>${Math.round(element.main.temp_min)}°C / <i class="bi bi-arrow-up-short"></i>${Math.round(element.main.temp_max)}°C</span>
+            <div class="forecastDays bg-afpa text-center d-flex justify-content-evenly align-items-center rounded mb-1">
+                ${moment(element.dt_txt).locale('fr').format('ddd')}<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}.png" alt="Image météo"><span>max : ${Math.round(element.main.temp_max)}°C</span>
             </div>    
             `
     })
@@ -99,7 +105,7 @@ function makeTenHoursCast(arrayData, nbHours) {
     let htmlElement = ''
     for (let i = 0; i < nbHours; i++) {
         htmlElement += `
-            <div class="forecastHours bg-light border rounded py-2">
+            <div class="forecastHours bg-afpa rounded py-2 me-1">
                 <p class="mb-0">${moment(arrayData.list[i].dt_txt).locale('fr').format('LT')}</p>
                     <img src="https://openweathermap.org/img/wn/${arrayData.list[i].weather[0].icon}@2x.png" alt="Image météo">
                 <p class="mb-0">${Math.round(arrayData.list[i].main.temp)}°C</p>
